@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{65270230-CB6E-4D94-82E5-22F51FBA320A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "default", "default", "{A48445C9-BCEC-41D2-9E2D-74249417740C}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AwsTool.Sdk.Sns", "src\AwsTool.Sdk.Sns\AwsTool.Sdk.Sns.csproj", "{07540F1B-A3FA-42E6-B62D-0C27B71C2292}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0A7D8AE8-156A-4E98-88D6-DB75CD7AAD4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CDECC1AB-78C0-4A36-BF86-A958242B7363}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{07540F1B-A3FA-42E6-B62D-0C27B71C2292} = {65270230-CB6E-4D94-82E5-22F51FBA320A}
+		{CDECC1AB-78C0-4A36-BF86-A958242B7363} = {0A7D8AE8-156A-4E98-88D6-DB75CD7AAD4D}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07540F1B-A3FA-42E6-B62D-0C27B71C2292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07540F1B-A3FA-42E6-B62D-0C27B71C2292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07540F1B-A3FA-42E6-B62D-0C27B71C2292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07540F1B-A3FA-42E6-B62D-0C27B71C2292}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
