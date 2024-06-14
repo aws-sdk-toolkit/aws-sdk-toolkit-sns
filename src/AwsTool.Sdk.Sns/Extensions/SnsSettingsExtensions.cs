@@ -11,6 +11,13 @@ namespace AwsTool.Sdk.Sns.Extensions;
 [ExcludeFromCodeCoverage]
 public static class SnsSettingsExtensions
 {
+    /// <summary>
+    /// Configures a connection to SNS.
+    /// </summary>
+    /// <param name="services">Specifies the contract for a collection of service descriptors.</param>
+    /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+    /// <param name="environment">Provides information about the hosting environment an application is running in.</param>
+    /// <returns>Specifies the contract for a collection of service descriptors.</returns>
     public static IServiceCollection AddSns(this IServiceCollection services,
         IConfiguration configuration, IHostEnvironment environment)
     {

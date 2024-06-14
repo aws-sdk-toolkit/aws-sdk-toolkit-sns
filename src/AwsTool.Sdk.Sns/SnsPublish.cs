@@ -5,11 +5,18 @@ using Amazon.SimpleNotificationService.Model;
 
 namespace AwsTool.Sdk.Sns;
 
+/// <summary>
+/// Represents integration with the SNS topic.
+/// </summary>
 public class SnsPublish : ISnsPublish
 {
     private readonly IAmazonSimpleNotificationService _snsClient;
     private readonly JsonSerializerOptions _jsonOption;
 
+    /// <summary>
+    /// Instantiates a <see cref="SnsPublish"/>.
+    /// </summary>
+    /// <param name="snsClient">Connection to the SNS.</param>
     public SnsPublish(IAmazonSimpleNotificationService snsClient)
     {
         _snsClient = snsClient;
@@ -21,6 +28,13 @@ public class SnsPublish : ISnsPublish
         };
     }
 
+    /// <summary>
+    /// Posts a message to the specified topic.
+    /// </summary>
+    /// <param name="topicArn">Topic to be published.</param>
+    /// <param name="message">Message to be published.</param>
+    /// <param name="cancellationToken">Token which can be used to cancel the task.</param>
+    /// <returns>A Task that can be used to poll or wait for results, or both.</returns>
     public async Task ExecuteAsync(string topicArn, object message, CancellationToken cancellationToken)
     {
         var messageText = JsonSerializer.Serialize(message, _jsonOption);
@@ -34,8 +48,17 @@ public class SnsPublish : ISnsPublish
     }
 }
 
-
+/// <summary>
+/// Represents integration with the SNS topic.
+/// </summary>
 public interface ISnsPublish
 {
+    /// <summary>
+    /// Posts a message to the specified topic.
+    /// </summary>
+    /// <param name="topicArn">Topic to be published.</param>
+    /// <param name="message">Message to be published.</param>
+    /// <param name="cancellationToken">Token which can be used to cancel the task.</param>
+    /// <returns>A Task that can be used to poll or wait for results, or both.</returns>
     Task ExecuteAsync(string topicArn, object message, CancellationToken cancellationToken);
 }

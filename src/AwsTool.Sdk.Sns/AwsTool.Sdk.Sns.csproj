@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <Version>1.0.0-beta</Version>
+        <Version>1.0.0-beta1</Version>
         <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>AwsTool.Sdk.Sns</RootNamespace>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageTags>AWS;SNS</PackageTags>
         <PackageDescription>Responsible for integrating with the AWS SNS service.</PackageDescription>
+        <RepositoryUrl>https://github.com/aws-sdk-toolkit/aws-sdk-toolkit-sns</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
