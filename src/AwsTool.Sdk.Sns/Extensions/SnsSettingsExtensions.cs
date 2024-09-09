@@ -24,7 +24,12 @@ public static class SnsSettingsExtensions
         if (environment.IsDevelopment())
         {
             var awsSnsOptions = GetAwsLocalOptions(configuration);
-            services.AddAWSService<IAmazonSimpleNotificationService>(awsSnsOptions);
+            if (string.IsNullOrEmpty(awsSnsOptions.DefaultClientConfig.ServiceURL))
+            {
+                services.AddAWSService<IAmazonSimpleNotificationService>();    
+            }
+            else
+                services.AddAWSService<IAmazonSimpleNotificationService>(awsSnsOptions);
         }
         else
         {
