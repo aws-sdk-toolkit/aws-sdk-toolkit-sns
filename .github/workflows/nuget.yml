@@ -27,6 +27,17 @@ jobs:
       - name: Pack the project
         run: dotnet pack --configuration Release --no-build --output ./nupkg
 
+      - name: Verify NuGet API Key
+        run: |
+          if [ -z "$NUGET_API_KEY" ]; then
+            echo "NuGet API Key is not set."
+            exit 1
+          else
+            echo "NuGet API Key is set."
+          fi
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
       - name: Publish NuGet Package
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
