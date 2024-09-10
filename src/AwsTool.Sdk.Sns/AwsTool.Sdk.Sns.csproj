@@ -13,6 +13,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <!-- Inclua o README.md no pacote NuGet -->
+        <Content Include="README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
+    
+    <ItemGroup>
         <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.301"/>
         <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.301.50"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1"/>

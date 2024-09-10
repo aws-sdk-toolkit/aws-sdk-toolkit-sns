@@ -28,10 +28,10 @@ jobs:
         run: ls -la src/AwsTool.Sdk.Sns/
           
       - name: Build the project
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore src/AwsTool.Sdk.Sns/AwsTool.Sdk.Sns.csproj
 
       - name: Pack the project
-        run: dotnet pack --configuration Release --no-build --output ./nupkg
+        run: dotnet pack --configuration Release --no-build --output ./nupkg src/AwsTool.Sdk.Sns/AwsTool.Sdk.Sns.csproj
 
       - name: Publish NuGet Package
         env:
