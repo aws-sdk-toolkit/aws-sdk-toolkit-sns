@@ -23,6 +23,9 @@ jobs:
 
       - name: Copy README.md to project directory
         run: cp README.md src/AwsTool.Sdk.Sns/
+
+      - name: List files in project directory
+        run: ls -la src/AwsTool.Sdk.Sns/
           
       - name: Build the project
         run: dotnet build --configuration Release --no-restore
