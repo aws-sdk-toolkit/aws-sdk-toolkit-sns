@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,20 +27,7 @@ jobs:
       - name: Pack the project
         run: dotnet pack --configuration Release --no-build --output ./nupkg
 
-      - name: Verify NuGet API Key
-        run: |
-          if (-Not [string]::IsNullOrEmpty($env:NUGET_API_KEY)) {
-              Write-Host "NuGet API Key is set."
-          } else {
-            Write-Host "NuGet API Key is not set."
-            exit 1
-          }
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-
       - name: Publish NuGet Package
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          $key = "${{ secrets.NUGET_API_KEY }}"
-          dotnet nuget push "./nupkg/*.nupkg" --api-key $key --source "https://api.nuget.org/v3/index.json"
+        run: dotnet nuget push "./nupkg/*.nupkg" --api-key $NUGET_API_KEY --source "https://api.nuget.org/v3/index.json"
