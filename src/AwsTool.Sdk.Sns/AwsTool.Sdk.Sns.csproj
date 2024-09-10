@@ -9,7 +9,7 @@
         <PackageTags>AWS;SNS</PackageTags>
         <PackageDescription>Responsible for integrating with the AWS SNS service.</PackageDescription>
         <RepositoryUrl>https://github.com/aws-sdk-toolkit/aws-sdk-toolkit-sns</RepositoryUrl>
-        <PackageReadmeFile>../../README.md</PackageReadmeFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
