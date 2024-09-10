@@ -29,12 +29,12 @@ jobs:
 
       - name: Verify NuGet API Key
         run: |
-          if [ -z "$NUGET_API_KEY" ]; then
-            echo "NuGet API Key is not set."
+          if (-Not [string]::IsNullOrEmpty($env:NUGET_API_KEY)) {
+              Write-Host "NuGet API Key is set."
+          } else {
+            Write-Host "NuGet API Key is not set."
             exit 1
-          else
-            echo "NuGet API Key is set."
-          fi
+          }
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
