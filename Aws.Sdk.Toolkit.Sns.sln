@@ -17,6 +17,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{0A7D8AE8-156A-4E98-88D6-DB75CD7AAD4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{CDECC1AB-78C0-4A36-BF86-A958242B7363}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\nuget.yml = .github\workflows\nuget.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
