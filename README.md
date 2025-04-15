@@ -22,3 +22,5 @@ builder.Services
     }
 }
 ```
+
+* The publication of the message in the topic will be carried out through the implementation represented in the **ISnsPublish** interface.

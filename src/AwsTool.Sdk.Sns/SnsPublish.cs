@@ -33,15 +33,23 @@ public class SnsPublish : ISnsPublish
     /// </summary>
     /// <param name="topicArn">Topic to be published.</param>
     /// <param name="message">Message to be published.</param>
+    /// <param name="headers">Header publicado junto a mensagem.</param>
     /// <param name="cancellationToken">Token which can be used to cancel the task.</param>
     /// <returns>A Task that can be used to poll or wait for results, or both.</returns>
-    public async Task ExecuteAsync(string topicArn, object message, CancellationToken cancellationToken)
+    public async Task ExecuteAsync(string topicArn, object message, Dictionary<string, string>? headers, CancellationToken cancellationToken)
     {
         var messageText = JsonSerializer.Serialize(message, _jsonOption);
         var request = new PublishRequest
         {
             TopicArn = topicArn, 
-            Message = messageText
+            Message = messageText,
+            MessageAttributes = headers?.ToDictionary(
+                header => header.Key,
+                header => new MessageAttributeValue
+                {
+                    DataType = "String",
+                    StringValue = header.Value
+                })
         };
 
         await _snsClient.PublishAsync(request, cancellationToken);
@@ -58,7 +66,8 @@ public interface ISnsPublish
     /// </summary>
     /// <param name="topicArn">Topic to be published.</param>
     /// <param name="message">Message to be published.</param>
+    /// <param name="headers">Header publicado junto a mensagem.</param>
     /// <param name="cancellationToken">Token which can be used to cancel the task.</param>
     /// <returns>A Task that can be used to poll or wait for results, or both.</returns>
-    Task ExecuteAsync(string topicArn, object message, CancellationToken cancellationToken);
+    Task ExecuteAsync(string topicArn, object message, Dictionary<string, string>? headers, CancellationToken cancellationToken);
 }
